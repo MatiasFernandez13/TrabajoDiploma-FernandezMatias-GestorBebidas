@@ -1,0 +1,45 @@
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\BLL.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\BLL.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\BE.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\DAL.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\SERVICIOS.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\System.Data.SqlClient.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\BE.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\DAL.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\SERVICIOS.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\bin\Debug\System.Data.SqlClient.xml
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.Up2Date
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\obj\Debug\BLL.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\BLL\obj\Debug\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\BE.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\DAL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\SERVICIOS.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\BE.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\DAL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\SERVICIOS.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\bin\Debug\System.Data.SqlClient.xml
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.Up2Date
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\obj\Debug\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\BLL\obj\Debug\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\BE.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\DAL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\SERVICIOS.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\BE.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\DAL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\SERVICIOS.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\bin\Debug\System.Data.SqlClient.xml
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\obj\Debug\BLL.csproj.Up2Date
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\obj\Debug\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\BLL\obj\Debug\BLL.pdb
