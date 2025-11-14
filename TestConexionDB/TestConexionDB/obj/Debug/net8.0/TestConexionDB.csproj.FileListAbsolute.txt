@@ -1,0 +1,4 @@
+E:\MATTY\UAI\2025\Proyecto1\TestConexionDB\TestConexionDB\obj\Debug\net8.0\TestConexionDB.GeneratedMSBuildEditorConfig.editorconfig
+E:\MATTY\UAI\2025\Proyecto1\TestConexionDB\TestConexionDB\obj\Debug\net8.0\TestConexionDB.AssemblyInfoInputs.cache
+E:\MATTY\UAI\2025\Proyecto1\TestConexionDB\TestConexionDB\obj\Debug\net8.0\TestConexionDB.AssemblyInfo.cs
+E:\MATTY\UAI\2025\Proyecto1\TestConexionDB\TestConexionDB\obj\Debug\net8.0\TestConexionDB.csproj.CoreCompileInputs.cache
