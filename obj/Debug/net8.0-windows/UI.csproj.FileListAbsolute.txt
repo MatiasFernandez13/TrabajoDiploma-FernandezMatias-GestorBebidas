@@ -1,0 +1,243 @@
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.exe
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll.config
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.deps.json
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmLogin.resources
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmPrincipal.resources
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmProductos.resources
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmUsuarios.resources
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\refint\UI.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.pdb
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\ref\UI.dll
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmVentas.resources
+E:\MATTY\UAI\2025\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmReportes.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.exe
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll.config
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.deps.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmLogin.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmPrincipal.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmProductos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmReportes.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmUsuarios.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmVentas.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\refint\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Proyecto1\UI\UI\obj\Debug\net8.0-windows\ref\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.exe
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll.config
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.deps.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmLogin.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmPrincipal.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmProductos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmReportes.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmUsuarios.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmVentas.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\refint\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\ProyectoMF\Backup06Junio\Proyecto1\UI\UI\obj\Debug\net8.0-windows\ref\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmAsignarPermisos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmBitacora.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmGestionPermisos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmLogin.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmPrincipal.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmProductos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmReportes.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmUsuarios.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmVentas.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.exe
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll.config
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.deps.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\refint\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\backup 2da entrega\Proyecto1\UI\UI\obj\Debug\net8.0-windows\ref\UI.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.exe
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll.config
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.deps.json
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BE.pdb
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.pdb
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmAsignarPermisos.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmBitacora.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmGestionPermisos.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmLogin.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmPrincipal.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmProductos.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmReportes.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmUsuarios.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.FrmVentas.resources
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\refint\UI.dll
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+C:\Users\1992f\OneDrive - UNIVERSIDAD ABIERTA INTERAMERICANA\2025 2do Cuatri\Viernes - Castelar Diploma\Proyecto1\UI\UI\obj\Debug\net8.0-windows\ref\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmAsignarPermisos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmBase.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmBitacora.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmIdiomas.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmInventario.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmLogin.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmLotes.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmPermisos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmPrincipal.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmProductos.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmReportes.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmUsuarios.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.FrmVentas.resources
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\UI.exe
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\UI.dll.config
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\UI.deps.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\BE.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\INTERFACES.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\BE.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\SERVICIOS.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\bin\Debug\net8.0-windows\INTERFACES.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\refint\UI.dll
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.pdb
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+C:\Users\1992f\Documents\Matty\UAI\IS\ProyectoMF\Diploma ultima entrega\UI\UI\obj\Debug\net8.0-windows\ref\UI.dll
