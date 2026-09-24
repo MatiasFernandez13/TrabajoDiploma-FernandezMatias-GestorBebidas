@@ -11,11 +11,9 @@ Aplicación de escritorio para gestionar productos, clientes, lotes, inventario,
 - SQL Server (desarrollo realizado con SQL Server 2022) y SQL Server Management Studio o la herramienta sqlcmd.
 - Acceso a Internet para restaurar los paquetes NuGet durante la primera compilación.
 
-## Base completa con datos ficticios (recomendada para evaluar)
+## Base completa con datos
 
-`DB/BaseGestionBebidasMF-completa.zip` contiene el respaldo `BaseGestionBebidasMF.bak` con la estructura completa y todos los datos ficticios del proyecto: clientes, ventas, detalles, productos, lotes, usuarios, permisos, idiomas, traducciones, bitácora e historial. Conserva el estado de la base del autor, incluidos los usuarios y sus contraseñas almacenadas como hashes.
-
-El respaldo se creó con SQL Server 2022 Express. Restaurarlo en SQL Server 2022 o una versión posterior; no se puede restaurar este respaldo en versiones anteriores.
+`DB/BaseGestionBebidasMF-completa.zip` contiene el respaldo `BaseGestionBebidasMF.bak` con la estructura completa y todos los datos del proyecto: clientes, ventas, detalles, productos, lotes, usuarios, permisos, idiomas, traducciones, bitácora e historial.
 
 1. Descargar y descomprimir `DB/BaseGestionBebidasMF-completa.zip`.
 2. Copiar el `.bak` en una carpeta del equipo donde corre SQL Server a la que su servicio tenga acceso (por ejemplo, su carpeta de respaldos).
@@ -29,7 +27,7 @@ También se puede utilizar `DB/RestaurarCompleta.sql`: cambiar el valor de `Ruta
 sqlcmd -S localhost -E -b -i DB/RestaurarCompleta.sql
 ```
 
-El script obtiene automáticamente las carpetas de datos y registros de la instancia y se detiene si la base ya existe. No sobrescribir una base existente para probar la entrega: usar una instancia independiente o respaldar y gestionar esa base por separado.
+El script obtiene automáticamente las carpetas de datos y registros de la instancia y se detiene si la base ya existe. 
 
 **No ejecutar `Instalar.sql` después de restaurar el respaldo.** La copia completa ya contiene el esquema y los datos. No es necesario ejecutar las migraciones de `DB/Schema` ni todos los procedimientos de `DB/StoredProcedures`.
 
@@ -68,8 +66,6 @@ dotnet run --project UI/UI.csproj
 - Usuario: `admin`
 - Contraseña inicial de prueba: `admin123`
 
-Cambiar la contraseña inicial desde la gestión de usuarios después del primer acceso. En la base vacía, crear productos, clientes y lotes, registrar una venta y luego consultar los reportes. En la base completa ya existen operaciones; para ver las ventas históricas, seleccionar un período que incluya sus fechas.
-
 ## Estructura
 
 | Carpeta | Contenido |
@@ -81,13 +77,3 @@ Cambiar la contraseña inicial desde la gestión de usuarios después del primer
 | SERVICIOS | Seguridad, sesión, integridad e idiomas |
 | UI | Formularios Windows Forms y exportación de reportes |
 | DB | Instalación de la base, scripts de mantenimiento y documentación |
-
-`bin`, `obj`, `.vs`, `packages` y `artifacts` no forman parte de la entrega: los archivos de compilación y los paquetes se regeneran al restaurar y compilar.
-
-La compilación actual conserva advertencias del código existente. Para detalles funcionales de reportes, consultar `DB/REPORTES.md`.
-
-## Validación de la entrega
-
-Se verificó la compilación de la solución (sin errores, con advertencias existentes), la creación de una base vacía, la creación automática del administrador, un segundo inicio, el login, la integridad y las consultas de reportes sin datos. Estas comprobaciones no sustituyen una prueba manual de todos los formularios.
-
-La copia completa se verificó mediante restauración en una base temporal y comprobación de integridad con DBCC CHECKDB. Contiene 7 clientes, 30 ventas, 53 detalles de venta, 31 productos y 29 usuarios, además del resto de las tablas.
