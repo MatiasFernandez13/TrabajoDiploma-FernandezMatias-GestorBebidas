@@ -11,20 +11,37 @@ Aplicación de escritorio para gestionar productos, clientes, lotes, inventario,
 - SQL Server (desarrollo realizado con SQL Server 2022) y SQL Server Management Studio o la herramienta sqlcmd.
 - Acceso a Internet para restaurar los paquetes NuGet durante la primera compilación.
 
-## Crear la base de datos
+## Base completa con datos ficticios (recomendada para evaluar)
 
-1. Iniciar el servicio de SQL Server.
-2. Ejecutar `DB/Instalar.sql` en una instancia donde no exista `BaseGestionBebidasMF`. Con sqlcmd:
+`DB/BaseGestionBebidasMF-completa.zip` contiene el respaldo `BaseGestionBebidasMF.bak` con la estructura completa y todos los datos ficticios del proyecto: clientes, ventas, detalles, productos, lotes, usuarios, permisos, idiomas, traducciones, bitácora e historial. Conserva el estado de la base del autor, incluidos los usuarios y sus contraseñas almacenadas como hashes.
 
-   ```powershell
-   sqlcmd -S localhost -E -b -i DB/Instalar.sql
-   ```
+El respaldo se creó con SQL Server 2022 Express. Restaurarlo en SQL Server 2022 o una versión posterior; no se puede restaurar este respaldo en versiones anteriores.
 
-   En Management Studio, activar **Consulta > Modo SQLCMD** antes de ejecutar el archivo para que se interrumpa ante un error.
-3. El script crea tablas, relaciones, procedimientos y catálogos iniciales. No incluye usuarios, clientes, productos ni ventas de la base del autor.
-4. No ejecutar todos los archivos de `DB/Schema` y `DB/StoredProcedures` después de la instalación: son scripts de mantenimiento y migración de versiones anteriores.
+1. Descargar y descomprimir `DB/BaseGestionBebidasMF-completa.zip`.
+2. Copiar el `.bak` en una carpeta del equipo donde corre SQL Server a la que su servicio tenga acceso (por ejemplo, su carpeta de respaldos).
+3. En SQL Server Management Studio, conectarse a la instancia, hacer clic derecho en **Bases de datos > Restaurar base de datos**, seleccionar **Dispositivo**, agregar el `.bak` y usar como destino `BaseGestionBebidasMF`.
+4. En **Archivos**, elegir las carpetas de datos y registros de la instancia del profesor, mediante la opción de reubicar los archivos. Las rutas del equipo del autor no tienen que existir en el equipo del profesor.
+5. Confirmar la restauración, configurar la conexión como se explica abajo y ejecutar `UI.sln`.
 
-El instalador se detiene si la base ya existe; no elimina una base existente. Para actualizar una instalación previa, revisar cada migración antes de aplicarla.
+También se puede utilizar `DB/RestaurarCompleta.sql`: cambiar el valor de `RutaRespaldo` por la ubicación del `.bak` y ejecutarlo con **Modo SQLCMD** activado en Management Studio, o desde una terminal:
+
+```powershell
+sqlcmd -S localhost -E -b -i DB/RestaurarCompleta.sql
+```
+
+El script obtiene automáticamente las carpetas de datos y registros de la instancia y se detiene si la base ya existe. No sobrescribir una base existente para probar la entrega: usar una instancia independiente o respaldar y gestionar esa base por separado.
+
+**No ejecutar `Instalar.sql` después de restaurar el respaldo.** La copia completa ya contiene el esquema y los datos. No es necesario ejecutar las migraciones de `DB/Schema` ni todos los procedimientos de `DB/StoredProcedures`.
+
+## Alternativa: instalar una base vacía
+
+Para comenzar sin operaciones comerciales, usar `DB/Instalar.sql` en lugar del respaldo completo, en una instancia donde no exista `BaseGestionBebidasMF`:
+
+```powershell
+sqlcmd -S localhost -E -b -i DB/Instalar.sql
+```
+
+En Management Studio, activar **Consulta > Modo SQLCMD** antes de ejecutar el archivo. Este instalador crea la estructura y los catálogos iniciales, sin los usuarios, clientes, productos ni ventas del autor. Se detiene si la base ya existe. Incluye las correcciones documentadas durante la preparación de la instalación vacía; el respaldo completo conserva la base original sin aplicar esas modificaciones.
 
 ## Configurar la conexión
 
@@ -44,12 +61,14 @@ dotnet build UI.sln
 dotnet run --project UI/UI.csproj
 ```
 
-Al iniciar por primera vez se crean los permisos y el administrador inicial:
+**Con la base completa**, se conservan las cuentas y contraseñas que ya se utilizaban en el proyecto. El arranque no cambia la contraseña de un administrador existente.
+
+**Con la instalación vacía**, al iniciar por primera vez se crean los permisos y el administrador inicial:
 
 - Usuario: `admin`
 - Contraseña inicial de prueba: `admin123`
 
-Cambiar esta contraseña desde la gestión de usuarios después del primer acceso. La base inicial no contiene operaciones comerciales: crear productos, clientes y lotes desde la aplicación, registrar una venta y luego consultar los reportes. Los reportes vacíos son esperables antes de cargar operaciones.
+Cambiar la contraseña inicial desde la gestión de usuarios después del primer acceso. En la base vacía, crear productos, clientes y lotes, registrar una venta y luego consultar los reportes. En la base completa ya existen operaciones; para ver las ventas históricas, seleccionar un período que incluya sus fechas.
 
 ## Estructura
 
@@ -70,3 +89,5 @@ La compilación actual conserva advertencias del código existente. Para detalle
 ## Validación de la entrega
 
 Se verificó la compilación de la solución (sin errores, con advertencias existentes), la creación de una base vacía, la creación automática del administrador, un segundo inicio, el login, la integridad y las consultas de reportes sin datos. Estas comprobaciones no sustituyen una prueba manual de todos los formularios.
+
+La copia completa se verificó mediante restauración en una base temporal y comprobación de integridad con DBCC CHECKDB. Contiene 7 clientes, 30 ventas, 53 detalles de venta, 31 productos y 29 usuarios, además del resto de las tablas.
