@@ -11,35 +11,29 @@ Aplicación de escritorio para gestionar productos, clientes, lotes, inventario,
 - SQL Server (desarrollo realizado con SQL Server 2022) y SQL Server Management Studio o la herramienta sqlcmd.
 - Acceso a Internet para restaurar los paquetes NuGet durante la primera compilación.
 
-## Base completa con datos
+## Entrega corregida al profesor (30/09/2026)
 
-`DB/BaseGestionBebidasMF-completa.zip` contiene el respaldo `BaseGestionBebidasMF.bak` con la estructura completa y todos los datos del proyecto: clientes, ventas, detalles, productos, lotes, usuarios, permisos, idiomas, traducciones, bitácora e historial.
+Descargar `DB/EntregaProfesor_Corregida.zip` y seguir `LEEME_CORRECCION.md` dentro del paquete.
 
-1. Descargar y descomprimir `DB/BaseGestionBebidasMF-completa.zip`.
-2. Copiar el `.bak` en una carpeta del equipo donde corre SQL Server a la que su servicio tenga acceso (por ejemplo, su carpeta de respaldos).
-3. En SQL Server Management Studio, conectarse a la instancia, hacer clic derecho en **Bases de datos > Restaurar base de datos**, seleccionar **Dispositivo**, agregar el `.bak` y usar como destino `BaseGestionBebidasMF`.
-4. En **Archivos**, elegir las carpetas de datos y registros de la instancia del profesor, mediante la opción de reubicar los archivos. Las rutas del equipo del autor no tienen que existir en el equipo del profesor.
-5. Confirmar la restauración, configurar la conexión como se explica abajo y ejecutar `UI.sln`.
+- **Si ya ejecutó el script anterior y recibió el error de `RolId`:** ejecutar `DB/RepararBase_BebidasMF.sql` con **Consulta > Modo SQLCMD** activado. No borrar la base ni volver a cargar los datos.
+- **Para una instalación nueva con todos los datos ficticios:** ejecutar `DB/GeneraBase_BebidasMF_Corregida.sql` con **Modo SQLCMD** en una instancia donde no exista `BaseGestionBebidasMF`. No ejecutar también el parche.
 
-También se puede utilizar `DB/RestaurarCompleta.sql`: cambiar el valor de `RutaRespaldo` por la ubicación del `.bak` y ejecutarlo con **Modo SQLCMD** activado en Management Studio, o desde una terminal:
+Ambos caminos fueron probados con SQL Server 2022 Express. La entrega contiene 7 clientes, 30 ventas, 53 detalles de venta, 31 productos y 29 usuarios, además del resto de las tablas. Se conservaron las contraseñas y los datos comerciales del archivo original; se corrigieron procedimientos obsoletos y verificadores técnicos de integridad. Los detalles y las pruebas están en `DB/LEEME_CORRECCION.md`.
 
-```powershell
-sqlcmd -S localhost -E -b -i DB/RestaurarCompleta.sql
-```
-
-El script obtiene automáticamente las carpetas de datos y registros de la instancia y se detiene si la base ya existe. 
-
-**No ejecutar `Instalar.sql` después de restaurar el respaldo.** La copia completa ya contiene el esquema y los datos. No es necesario ejecutar las migraciones de `DB/Schema` ni todos los procedimientos de `DB/StoredProcedures`.
-
-## Alternativa: instalar una base vacía
-
-Para comenzar sin operaciones comerciales, usar `DB/Instalar.sql` en lugar del respaldo completo, en una instancia donde no exista `BaseGestionBebidasMF`:
+Desde una terminal, para una instalación nueva:
 
 ```powershell
-sqlcmd -S localhost -E -b -i DB/Instalar.sql
+sqlcmd -S localhost -E -b -i DB/GeneraBase_BebidasMF_Corregida.sql
 ```
 
-En Management Studio, activar **Consulta > Modo SQLCMD** antes de ejecutar el archivo. Este instalador crea la estructura y los catálogos iniciales, sin los usuarios, clientes, productos ni ventas del autor. Se detiene si la base ya existe. Incluye las correcciones documentadas durante la preparación de la instalación vacía; el respaldo completo conserva la base original sin aplicar esas modificaciones.
+El instalador no sobrescribe bases existentes y utiliza las carpetas predeterminadas de SQL Server. Si el parche indica que falta una tabla, revisar la instalación parcial antes de continuar; no reconstruye tablas ni repone datos faltantes.
+
+## Otras opciones de instalación
+
+- `DB/Instalar.sql`: instalación vacía, solamente esquema y catálogos iniciales. No ejecutar sobre una base que ya contiene datos.
+- `DB/BaseGestionBebidasMF-completa.zip`: respaldo histórico del 24/09, para SQL Server 2022 o posterior. Después de restaurarlo mediante `DB/RestaurarCompleta.sql` o el asistente de Management Studio, **aplicar `DB/RepararBase_BebidasMF.sql`**. El respaldo original no incorpora las correcciones del 30/09.
+
+No ejecutar todos los scripts de `DB/Schema` o `DB/StoredProcedures`: contienen migraciones y mantenimiento de versiones anteriores.
 
 ## Configurar la conexión
 

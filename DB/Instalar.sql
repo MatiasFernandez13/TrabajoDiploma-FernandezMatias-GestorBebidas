@@ -1332,72 +1332,6 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE sp_VerificarIntegridadProductos
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    CREATE TABLE #Errores (
-        IdProducto INT,
-        Nombre NVARCHAR(100),
-        DVH_Original DECIMAL(38,0),
-        DVH_Recalculado DECIMAL(38,0),
-        Observacion NVARCHAR(200)
-    );
-
-    DECLARE @Id INT, @Nombre NVARCHAR(100), @CategoriaId INT,
-            @Precio DECIMAL(18,2), @LitrosPorUnidad FLOAT, @Stock INT, @Activo BIT,
-            @Concatenado NVARCHAR(MAX),
-            @Hash VARBINARY(64),
-            @DVH_Recalc BIGINT, @DVH_Orig DECIMAL(38,0);
-
-    DECLARE cur CURSOR FOR
-        SELECT Id, Nombre, CategoriaId, Precio, LitrosPorUnidad, Stock, Activo, DVH
-        FROM Productos;
-
-    OPEN cur;
-    FETCH NEXT FROM cur INTO @Id, @Nombre, @CategoriaId, @Precio, @LitrosPorUnidad, @Stock, @Activo, @DVH_Orig;
-
-    WHILE @@FETCH_STATUS = 0
-    BEGIN
-        SET @Concatenado = CONCAT(@Id, @Nombre, @CategoriaId, @Precio, @LitrosPorUnidad, @Stock, @Activo);
-        SET @Hash = HASHBYTES('SHA2_256', CONVERT(VARBINARY(MAX), @Concatenado));
-        SET @DVH_Recalc = ABS(CONVERT(BIGINT, SUBSTRING(@Hash, 1, 8)));
-
-        IF @DVH_Recalc != @DVH_Orig
-        BEGIN
-            INSERT INTO #Errores(IdProducto, Nombre, DVH_Original, DVH_Recalculado, Observacion)
-            VALUES(@Id, @Nombre, @DVH_Orig, @DVH_Recalc, 'DVH no coincide');
-        END
-
-        FETCH NEXT FROM cur INTO @Id, @Nombre, @CategoriaId, @Precio, @LitrosPorUnidad, @Stock, @Activo, @DVH_Orig;
-    END
-
-    CLOSE cur;
-    DEALLOCATE cur;
-
-    DECLARE @SumaDVH DECIMAL(38,0);
-    DECLARE @DVV_Almacenado DECIMAL(38,0);
-    DECLARE @Observacion NVARCHAR(200);
-
-    SELECT @SumaDVH = SUM(DVH) FROM Productos;
-    SELECT @DVV_Almacenado = DVV FROM DigitoVerificador WHERE Tabla = 'Productos';
-
-    IF @SumaDVH != @DVV_Almacenado
-    BEGIN
-        SET @Observacion = 'DVV no coincide: Suma DVH=' + CAST(@SumaDVH AS NVARCHAR(50))
-                         + ', DVV almacenado=' + CAST(@DVV_Almacenado AS NVARCHAR(50));
-
-        INSERT INTO #Errores(IdProducto, Nombre, DVH_Original, DVH_Recalculado, Observacion)
-        VALUES(NULL, NULL, NULL, NULL, @Observacion);
-    END
-
-    SELECT * FROM #Errores;
-
-    DROP TABLE #Errores;
-END
-
-GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1445,52 +1379,6 @@ GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE sp_CalcularDVH_Productos
-AS
-BEGIN
-    DECLARE
-        @Id INT,
-        @Nombre NVARCHAR(100),
-        @CategoriaId INT,
-        @Precio DECIMAL(10,2),
-        @LitrosPorUnidad FLOAT,
-        @Stock INT,
-        @Activo BIT
-
-    DECLARE cur CURSOR FOR
-        SELECT Id, Nombre, CategoriaId, Precio, LitrosPorUnidad, Stock, Activo
-        FROM Productos
-
-    OPEN cur
-
-    FETCH NEXT FROM cur INTO @Id, @Nombre, @CategoriaId, @Precio, @LitrosPorUnidad, @Stock, @Activo
-
-    WHILE @@FETCH_STATUS = 0
-    BEGIN
-
-        DECLARE @Concatenado NVARCHAR(MAX)
-        SET @Concatenado = CONCAT(@Id, @Nombre, @CategoriaId, @Precio, @LitrosPorUnidad, @Stock, @Activo)
-
-
-        DECLARE @Hash VARBINARY(64) = HASHBYTES('SHA2_256', CONVERT(VARBINARY(MAX), @Concatenado))
-        DECLARE @DVH BIGINT = ABS(CONVERT(BIGINT, SUBSTRING(@Hash, 1, 8)))
-
-
-        UPDATE Productos
-        SET DVH = @DVH
-        WHERE Id = @Id
-
-        FETCH NEXT FROM cur INTO @Id, @Nombre, @CategoriaId, @Precio, @LitrosPorUnidad, @Stock, @Activo
-    END
-
-    CLOSE cur
-    DEALLOCATE cur
-
-
-    EXEC sp_RecalcularDVV 'Productos'
-END
-
 GO
 SET ANSI_NULLS ON
 GO

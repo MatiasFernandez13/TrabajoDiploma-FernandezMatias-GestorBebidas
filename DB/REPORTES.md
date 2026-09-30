@@ -4,7 +4,7 @@ La pantalla conserva una instantánea de la última consulta: cambiar filtros no
 
 ## Instalación
 
-Para una instalación nueva, ejecutar `Instalar.sql` siguiendo el README de la raíz. Para actualizar únicamente reportes en una base existente, ejecutar `StoredProcedures/Reportes_Analisis.sql` en `BaseGestionBebidasMF`. Crea o actualiza tres procedimientos específicos de reportes; no modifica datos comerciales ni los procedimientos anteriores. La instalación ya se aplicó en la base local durante el desarrollo.
+Para la entrega con datos, seguir `LEEME_CORRECCION.md`. Para una instalación vacía, ejecutar `Instalar.sql` siguiendo el README de la raíz. Para actualizar únicamente reportes en una base existente, ejecutar `StoredProcedures/Reportes_Analisis.sql` en `BaseGestionBebidasMF`. Crea o actualiza tres procedimientos específicos de reportes; no modifica datos comerciales ni los procedimientos anteriores. La instalación ya se aplicó en la base local durante el desarrollo.
 
 Restaurar y compilar `UI/UI.csproj`. Las exportaciones usan ClosedXML 0.105.0 y PDFsharp-MigraDoc-GDI 6.2.4; no requieren Excel ni impresora PDF instalada. Para imprimir, la opción del menú permite guardar y abrir un PDF en el visor predeterminado.
 
