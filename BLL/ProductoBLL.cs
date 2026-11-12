@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using DAL;
 using SERVICIOS;
 using System;
@@ -43,6 +43,7 @@ namespace BLL
             acceso.IniciarTransaccion();
             try
             {
+                ValidarProducto(producto, acceso);
                 producto.DVH = DigitoVerificador.CalcularDVH(producto);
                 int idGenerado = _productoDal.Insertar(producto, acceso);
                 producto.Id = idGenerado;
@@ -64,13 +65,18 @@ namespace BLL
             }
         }
 
-        public void AgregarConLote(Producto producto, Lote lote)
+        public void AgregarConLote(SolicitudProducto solicitud)
         {
+            if (solicitud?.Producto == null) throw new ArgumentNullException(nameof(solicitud));
+            Producto producto = solicitud.Producto;
+            Lote lote = solicitud.Lote;
+            LoteBLL.ValidarIngreso(lote);
             ACCESO acceso = new ACCESO();
             acceso.Abrir();
             acceso.IniciarTransaccion();
             try
             {
+                ValidarProducto(producto, acceso);
                 producto.DVH = DigitoVerificador.CalcularDVH(producto);
                 int idGenerado = _productoDal.Insertar(producto, acceso);
                 producto.Id = idGenerado;
@@ -96,8 +102,16 @@ namespace BLL
             }
         }
 
-        public void Modificar(Producto producto, Lote lote = null)
+        public void Modificar(SolicitudProducto solicitud)
         {
+            if (solicitud?.Producto == null) throw new ArgumentNullException(nameof(solicitud));
+            Producto producto = solicitud.Producto;
+            Lote lote = solicitud.Lote;
+            if (lote != null)
+            {
+                lote.ProductoId = producto.Id;
+                LoteBLL.ValidarIngreso(lote);
+            }
             Producto estadoAnterior = _productoDal.ObtenerPorId(producto.Id);
             if (estadoAnterior != null)
                 _historialBll.RegistrarSnapshot(estadoAnterior, "Modificar");
@@ -106,16 +120,15 @@ namespace BLL
             acceso.IniciarTransaccion();
             try
             {
+                Producto actual = _productoDal.Bloquear(producto, acceso);
+                if (!actual.Activo) throw new ArgumentException("El producto está dado de baja.");
+                producto.Stock = _loteDal.CalcularStockTotal(producto.Id, acceso);
+                ValidarProducto(producto, acceso);
                 producto.DVH = DigitoVerificador.CalcularDVH(producto);
                 _productoDal.Modificar(producto, acceso);
                 if (lote != null)
                 {
-                    List<Lote> lotesExistentes = _loteDal.ListarPorProducto(producto.Id, acceso);
-                    Lote loteExistente = lotesExistentes.FirstOrDefault(l => l.NumeroLote == lote.NumeroLote);
-                    if (loteExistente != null)
-                        _loteDal.ActualizarCantidad(loteExistente.Id, lote.Cantidad, acceso);
-                    else
-                        _loteDal.Agregar(lote, acceso);
+                    _loteDal.Agregar(lote, acceso);
                     _loteDal.ActualizarStockEnProducto(producto.Id, acceso);
                     Producto productoActualizado = _productoDal.ObtenerPorId(producto.Id, acceso);
                     productoActualizado.DVH = DigitoVerificador.CalcularDVH(productoActualizado);
@@ -172,6 +185,9 @@ namespace BLL
             acceso.IniciarTransaccion();
             try
             {
+                _productoDal.Bloquear(snapshot, acceso);
+                snapshot.Stock = _loteDal.CalcularStockTotal(snapshot.Id, acceso);
+                ValidarProducto(snapshot, acceso);
                 snapshot.DVH = DigitoVerificador.CalcularDVH(snapshot);
                 _productoDal.Modificar(snapshot, acceso);
                 acceso.RecalcularDVV("Productos");
@@ -188,6 +204,16 @@ namespace BLL
             {
                 acceso.Cerrar();
             }
+        }
+
+        private void ValidarProducto(Producto producto, ACCESO acceso)
+        {
+            if (producto == null || string.IsNullOrWhiteSpace(producto.Nombre) || producto.Nombre.Trim().Length > 100)
+                throw new ArgumentException("Ingrese un nombre de producto de hasta 100 caracteres.");
+            if (producto.Categoria <= 0 || producto.Precio < 0 || producto.LitrosPorUnidad <= 0 || double.IsInfinity(producto.LitrosPorUnidad) || double.IsNaN(producto.LitrosPorUnidad))
+                throw new ArgumentException("Verifique la categoría, el precio y la presentación del producto.");
+            producto.Nombre = producto.Nombre.Trim();
+            _productoDal.ValidarIdentidad(producto, acceso);
         }
 
         private static string MensajeCompleto(Exception ex)

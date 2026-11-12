@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -93,6 +93,38 @@ namespace DAL
             {
                 acceso.Cerrar();
             }
+        }
+
+        public Producto Bloquear(Producto referencia, ACCESO acceso)
+        {
+            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter> { acceso.CrearParametro("@Id", referencia.Id) };
+            if (acceso.LeerSQL("SELECT Id FROM dbo.Productos WITH (UPDLOCK,HOLDLOCK) WHERE Id=@Id", parametros).Rows.Count == 0)
+                throw new ArgumentException("El producto ya no existe.");
+            return ObtenerPorId(referencia.Id, acceso);
+        }
+
+        public void ValidarIdentidad(Producto producto, ACCESO acceso)
+        {
+            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>
+            {
+                acceso.CrearParametro("@Id", producto.Id),
+                acceso.CrearParametro("@Nombre", producto.Nombre),
+                acceso.CrearParametro("@Litros", producto.LitrosPorUnidad)
+            };
+            DataTable repetidos = acceso.LeerSQL(@"
+                SELECT TOP (1) p.Id, p.Nombre
+                FROM dbo.Productos p WITH (UPDLOCK,HOLDLOCK)
+                WHERE p.Id<>@Id AND p.Activo=1
+                  AND p.NombreClave=dbo.NormalizarIdentificador(@Nombre) COLLATE Latin1_General_100_CI_AI
+                  AND p.LitrosPorUnidad=@Litros
+                  AND NOT EXISTS
+                  (
+                      SELECT 1 FROM dbo.Productos actual WHERE actual.Id=@Id AND actual.Activo=1
+                        AND actual.NombreClave=dbo.NormalizarIdentificador(@Nombre) COLLATE Latin1_General_100_CI_AI
+                        AND actual.LitrosPorUnidad=@Litros
+                  )", parametros);
+            if (repetidos.Rows.Count > 0)
+                throw new ArgumentException($"Ya existe el producto '{repetidos.Rows[0]["Nombre"]}' con esa presentación. Selecciónelo y utilice Agregar unidades.");
         }
 
         public int Insertar(Producto objeto, ACCESO acceso)

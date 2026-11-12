@@ -1,5 +1,9 @@
 ﻿# Corrección para la entrega al profesor — 30/09/2026
 
+## Actualización incluida el 11/11/2026
+
+Este paquete también incorpora la corrección de productos, lotes y ventas. Para una base existente, ejecutar primero `RepararBase_BebidasMF.sql` si todavía falta la reparación de septiembre y luego `Actualizar_Productos_Lotes_Ventas.sql`. Para una instalación nueva, ejecutar solamente `GeneraBase_BebidasMF_Corregida.sql`, que ya incluye ambas actualizaciones. Los detalles están en `PRODUCTOS_LOTES_VENTAS.md`.
+
 ## Si ya ejecutó el archivo anterior y apareció el error de RolId
 
 1. Abrir `RepararBase_BebidasMF.sql` en SQL Server Management Studio y conectarse a la instancia donde se creó `BaseGestionBebidasMF`.

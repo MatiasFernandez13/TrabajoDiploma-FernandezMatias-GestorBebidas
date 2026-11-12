@@ -1,20 +1,9 @@
-IF OBJECT_ID('dbo.sp_Lote_ListarPorProducto', 'P') IS NOT NULL
-    DROP PROCEDURE dbo.sp_Lote_ListarPorProducto;
-GO
-CREATE PROCEDURE dbo.sp_Lote_ListarPorProducto
-    @ProductoId INT
+﻿CREATE OR ALTER PROCEDURE dbo.sp_Lote_ListarPorProducto @ProductoId int
 AS
 BEGIN
     SET NOCOUNT ON;
-    BEGIN TRY
-        SELECT Id, NumeroLote, FechaIngreso, FechaVencimiento, Cantidad, ProductoId
-        FROM Lote
-        WHERE ProductoId = @ProductoId
-        ORDER BY FechaVencimiento ASC;
-    END TRY
-    BEGIN CATCH
-        DECLARE @ErrMsg NVARCHAR(4000)=ERROR_MESSAGE(), @ErrSeverity INT=ERROR_SEVERITY();
-        RAISERROR(@ErrMsg, @ErrSeverity, 1);
-    END CATCH
-END
+    SELECT Id,NumeroLote,FechaIngreso,FechaVencimiento,Cantidad,ProductoId,Activo
+    FROM dbo.Lote WHERE ProductoId=@ProductoId
+    ORDER BY FechaIngreso,Id;
+END;
 GO

@@ -11,6 +11,14 @@ Aplicación de escritorio para gestionar productos, clientes, lotes, inventario,
 - SQL Server (desarrollo realizado con SQL Server 2022) y SQL Server Management Studio o la herramienta sqlcmd.
 - Acceso a Internet para restaurar los paquetes NuGet durante la primera compilación.
 
+## Actualización de productos, lotes y ventas (11/11/2026)
+
+Si ya tiene una base instalada, ejecutar `DB/Actualizar_Productos_Lotes_Ventas.sql` con **Modo SQLCMD** antes de usar esta versión. Si aún necesita reparar el error antiguo de `RolId`, ejecutar primero `DB/RepararBase_BebidasMF.sql`. Los instaladores completos actuales ya incluyen ambas correcciones.
+
+Se alinearon los campos de Productos, se impiden nuevas altas duplicadas de la misma presentación, se consolidan los ingresos del mismo lote y las ventas conservan la selección de lotes individuales o combinados. La base protege las cantidades y registra la distribución por lote. Los duplicados históricos se conservan para no alterar ventas previas.
+
+Consultar `DB/PRODUCTOS_LOTES_VENTAS.md` para las reglas y `Tests/Stock/Ejecutar.ps1` para ejecutar las pruebas en una base temporal independiente.
+
 ## Entrega corregida al profesor (30/09/2026)
 
 Descargar `DB/EntregaProfesor_Corregida.zip` y seguir `LEEME_CORRECCION.md` dentro del paquete.

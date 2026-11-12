@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,7 +63,7 @@ namespace UI
         private void CargarLotes(int productoId)
         {
             dgvLotes.DataSource = null;
-            List<Lote> lista = _loteBLL.ListarPorProducto(productoId);
+            List<Lote> lista = _loteBLL.ListarPorProducto(productoId).Where(l => l.Activo).ToList();
             dgvLotes.DataSource = lista;
             dgvLotes.ClearSelection();
             _loteSeleccionado = null;
@@ -126,7 +126,7 @@ namespace UI
                     int? loteSel = LoteBLL.ObtenerLotePreseleccionado(pId);
                     if (loteSel.HasValue && loteSel.Value == _loteSeleccionado.Id)
                         LoteBLL.LimpiarLotePreseleccionado(pId);
-                    _loteBLL.Eliminar(_loteSeleccionado.Id, pId);
+                    _loteBLL.Eliminar(_loteSeleccionado);
                     CargarLotes(pId);
                     ActualizarLabelSeleccionado();
                 }
@@ -145,10 +145,16 @@ namespace UI
                 return;
             }
 
-            LoteBLL.EstablecerLotePreseleccionado(_productoId, _loteSeleccionado.Id);
+            Lote seleccionado = _loteSeleccionado;
+            if (!seleccionado.Activo || seleccionado.Cantidad <= 0 || seleccionado.FechaIngreso.Date > DateTime.Today || seleccionado.FechaVencimiento.Date < DateTime.Today)
+            {
+                MessageBox.Show("Seleccione un lote vigente con unidades disponibles.");
+                return;
+            }
+            LoteBLL.EstablecerLotePreseleccionado(_productoId, seleccionado.Id);
             ActualizarLabelSeleccionado();
             CargarLotes(_productoId);
-            MessageBox.Show($"Lote N° {_loteSeleccionado.NumeroLote} pre-seleccionado correctamente.\n\n" + "Cuando agregue este producto al carrito de ventas, se descontará automáticamente de ESTE lote.", "Lote seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Lote N° {seleccionado.NumeroLote} preseleccionado correctamente.\n\n" + "Al agregar el producto podrá confirmar este lote o elegir otro lote o una combinación disponible.", "Lote seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cbProducto_SelectedIndexChanged(object sender, EventArgs e)

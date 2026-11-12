@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using DAL;
 using SERVICIOS;
 using System;
@@ -11,19 +11,23 @@ namespace BLL
     {
         private readonly VentaDAL _ventaDAL = new VentaDAL();
         private readonly ProductoDAL _productoDal = new ProductoDAL();
-        public Venta ConfirmarVenta(List<VentaDetalle> carrito, int usuarioId, int? clienteId = null, string zona = null, string vendedor = null)
+        public Venta ConfirmarVenta(Venta solicitud)
         {
-            if (carrito == null || !carrito.Any())
+            if (solicitud == null || solicitud.Detalles == null || solicitud.Detalles.Count == 0)
                 throw new ArgumentException("El carrito está vacío.");
-            List<VentaDetalle> consolidados = carrito.GroupBy(d => d.ProductoId).Select(g => new VentaDetalle { ProductoId = g.Key, ProductoNombre = g.Last().ProductoNombre, Cantidad = g.Sum(x => x.Cantidad), PrecioUnitario = g.Last().PrecioUnitario }).ToList();
+            if (solicitud.UsuarioId <= 0 || solicitud.Detalles.Any(d => d.ProductoId <= 0 || !d.LoteId.HasValue || d.LoteId.Value <= 0 || d.Cantidad <= 0 || d.PrecioUnitario < 0))
+                throw new ArgumentException("La venta debe incluir cantidades positivas y una selección de lotes válida.");
+            if (solicitud.Detalles.GroupBy(d => d.ProductoId).Any(g => g.Select(d => d.PrecioUnitario).Distinct().Count() > 1))
+                throw new ArgumentException("Cambió el precio de un producto. Quite sus líneas del carrito y vuelva a seleccionarlo.");
+            List<VentaDetalle> consolidados = solicitud.Detalles.GroupBy(d => new { d.ProductoId, d.LoteId }).Select(g => new VentaDetalle
+            {
+                ProductoId = g.Key.ProductoId, LoteId = g.Key.LoteId, LoteNumero = g.First().LoteNumero,
+                ProductoNombre = g.First().ProductoNombre, Cantidad = g.Sum(d => d.Cantidad), PrecioUnitario = g.First().PrecioUnitario
+            }).OrderBy(d => d.ProductoId).ThenBy(d => d.LoteId).ToList();
             Venta venta = new Venta
             {
-                Fecha = DateTime.Now,
-                UsuarioId = usuarioId,
-                ClienteId = clienteId,
-                Zona = string.IsNullOrWhiteSpace(zona) ? null : zona.Trim(),
-                Vendedor = string.IsNullOrWhiteSpace(vendedor) ? null : vendedor.Trim(),
-                Detalles = consolidados
+                Fecha = DateTime.Now, UsuarioId = solicitud.UsuarioId, ClienteId = solicitud.ClienteId,
+                Zona = solicitud.Zona?.Trim(), Vendedor = solicitud.Vendedor?.Trim(), Detalles = consolidados
             };
             ACCESO acceso = new ACCESO();
             acceso.Abrir();
@@ -44,7 +48,7 @@ namespace BLL
 
                 acceso.RecalcularDVV("Productos");
                 acceso.ConfirmarTransaccion();
-                BitacoraHelper.Registrar("Venta", "Alta", $"Venta #{ventaId} registrada por UsuarioId={usuarioId}, ClienteId={clienteId} " + $"({consolidados.Count} producto(s))");
+                BitacoraHelper.Registrar("Venta", "Alta", $"Venta #{ventaId} registrada por UsuarioId={venta.UsuarioId}, ClienteId={venta.ClienteId} " + $"({consolidados.Count} producto(s))");
                 return venta;
             }
             catch (Exception ex)

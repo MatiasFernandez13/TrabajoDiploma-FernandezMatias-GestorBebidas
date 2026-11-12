@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,14 +28,14 @@ namespace DAL
             }
         }
 
-        public void ActualizarCantidad(int loteId, int nuevaCantidad)
+        public void Eliminar(Lote lote)
         {
             ACCESO acceso = new ACCESO();
             acceso.Abrir();
             acceso.IniciarTransaccion();
             try
             {
-                ActualizarCantidad(loteId, nuevaCantidad, acceso);
+                Eliminar(lote, acceso);
                 acceso.ConfirmarTransaccion();
             }
             catch
@@ -49,28 +49,7 @@ namespace DAL
             }
         }
 
-        public void Eliminar(int id)
-        {
-            ACCESO acceso = new ACCESO();
-            acceso.Abrir();
-            acceso.IniciarTransaccion();
-            try
-            {
-                Eliminar(id, acceso);
-                acceso.ConfirmarTransaccion();
-            }
-            catch
-            {
-                acceso.CancelarTransaccion();
-                throw;
-            }
-            finally
-            {
-                acceso.Cerrar();
-            }
-        }
-
-        public void Agregar(Lote lote, ACCESO acceso)
+        public ResultadoIngresoLote Agregar(Lote lote, ACCESO acceso)
         {
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>
             {
@@ -82,11 +61,13 @@ namespace DAL
             };
             try
             {
-                acceso.Escribir("sp_Lote_Agregar", parametros);
+                DataTable resultado = acceso.Leer("sp_Lote_Agregar", parametros);
+                lote.Id = Convert.ToInt32(resultado.Rows[0]["Id"]);
+                return new ResultadoIngresoLote { Lote = lote, Consolidado = Convert.ToBoolean(resultado.Rows[0]["Consolidado"]) };
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en LoteDAL.Agregar", ex);
+                throw new Exception(ex.Message, ex);
             }
         }
 
@@ -108,37 +89,40 @@ namespace DAL
             }
         }
 
-        public void ActualizarCantidad(int loteId, int nuevaCantidad, ACCESO acceso)
+        public void ActualizarCantidad(Lote lote, ACCESO acceso)
         {
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>
             {
-                acceso.CrearParametro("@Cantidad", nuevaCantidad),
-                acceso.CrearParametro("@Id", loteId)
+                acceso.CrearParametro("@Cantidad", lote.Cantidad), acceso.CrearParametro("@Id", lote.Id), acceso.CrearParametro("@ProductoId", lote.ProductoId)
             };
-            try
-            {
-                acceso.EscribirSQL("UPDATE Lote SET Cantidad = @Cantidad WHERE Id = @Id", parametros);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en LoteDAL.ActualizarCantidad", ex);
-            }
+            if (acceso.EscribirSQL("UPDATE dbo.Lote SET Cantidad=@Cantidad WHERE Id=@Id AND ProductoId=@ProductoId AND Activo=1 AND @Cantidad>=0", parametros) != 1)
+                throw new ArgumentException("El lote no pertenece al producto o está dado de baja.");
         }
 
-        public void Eliminar(int id, ACCESO acceso)
+        public Lote BuscarExistente(Lote referencia)
+        {
+            ACCESO acceso = new ACCESO();
+            acceso.Abrir();
+            try
+            {
+                List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>
+                {
+                    acceso.CrearParametro("@ProductoId", referencia.ProductoId), acceso.CrearParametro("@Numero", referencia.NumeroLote)
+                };
+                DataTable tabla = acceso.LeerSQL("SELECT Id,NumeroLote,FechaIngreso,FechaVencimiento,Cantidad,ProductoId,Activo FROM dbo.Lote WHERE ProductoId=@ProductoId AND NumeroLoteClave=dbo.NormalizarIdentificador(@Numero) COLLATE Latin1_General_100_CI_AI", parametros);
+                return tabla.Rows.Count == 0 ? null : MapearLote(tabla.Rows[0]);
+            }
+            finally { acceso.Cerrar(); }
+        }
+
+        public void Eliminar(Lote lote, ACCESO acceso)
         {
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>
             {
-                acceso.CrearParametro("@Id", id)
+                acceso.CrearParametro("@Id", lote.Id), acceso.CrearParametro("@ProductoId", lote.ProductoId)
             };
-            try
-            {
-                acceso.Escribir("sp_Lote_Eliminar", parametros);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en LoteDAL.Eliminar", ex);
-            }
+            if (acceso.EscribirSQL("UPDATE dbo.Lote SET Activo=0 WHERE Id=@Id AND ProductoId=@ProductoId AND Activo=1", parametros) != 1)
+                throw new ArgumentException("El lote no pertenece al producto o ya está dado de baja.");
         }
 
         public List<Lote> ListarPorProducto(int productoId, ACCESO acceso = null)
@@ -211,7 +195,8 @@ namespace DAL
                 FechaIngreso = Convert.ToDateTime(fila["FechaIngreso"]),
                 FechaVencimiento = Convert.ToDateTime(fila["FechaVencimiento"]),
                 Cantidad = Convert.ToInt32(fila["Cantidad"]),
-                ProductoId = Convert.ToInt32(fila["ProductoId"])
+                ProductoId = Convert.ToInt32(fila["ProductoId"]),
+                Activo = Convert.ToBoolean(fila["Activo"])
             };
         }
     }

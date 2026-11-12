@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using BLL;
 using System;
 using System.Collections.Generic;
@@ -133,88 +133,25 @@ namespace UI
             }
         }
 
-        private Lote ElegirLoteManual(List<Lote> lotes, Producto producto, int cantidad, out bool canceladoPorUsuario)
+        private OpcionLotesVenta ElegirLotes(SolicitudSeleccionLotes solicitud)
         {
-            canceladoPorUsuario = false;
-            using (Form form = new Form())
+            List<OpcionLotesVenta> opciones = new SeleccionLotesBLL().CrearOpciones(solicitud);
+            if (opciones.Count == 0)
             {
-                form.Text = $"Seleccionar Lote - {producto.Nombre}";
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.FormBorderStyle = FormBorderStyle.FixedDialog;
-                form.MaximizeBox = false;
-                form.MinimizeBox = false;
-                form.ClientSize = new Size(540, 350);
-                form.Font = new Font("Segoe UI", 9F);
-                Label lblInfo = new Label
-                {
-                    Location = new Point(15, 15),
-                    AutoSize = true,
-                    Text = $"El producto '{producto.Nombre}' tiene {lotes.Count} lotes activos.\nSeleccione de cuál vender (opcional). Cantidad: {cantidad} unid."};
-                ComboBox cmb = new ComboBox
-                {
-                    Location = new Point(15, 70),
-                    Size = new Size(510, 28),
-                    DropDownStyle = ComboBoxStyle.DropDownList
-                };
-                cmb.Items.Add("(No seleccionar lote - usar FIFO automático)");
-                foreach (Lote l in lotes)
-                    cmb.Items.Add($"Lote N° {l.NumeroLote}   |   Ing: {l.FechaIngreso.ToShortDateString()}   |   Vto: {l.FechaVencimiento.ToShortDateString()}   |   Stock: {l.Cantidad}");
-                cmb.SelectedIndex = 0;
-                Label lblStock = new Label
-                {
-                    Location = new Point(15, 110),
-                    AutoSize = true,
-                    Text = "",
-                    ForeColor = ColorTranslator.FromHtml("#3A6351"),
-                    Font = new Font("Segoe UI", 9F, FontStyle.Bold)
-                };
-                cmb.SelectedIndexChanged += (_, __) =>
-                {
-                    if (cmb.SelectedIndex == 0)
-                    {
-                        lblStock.Text = "Se aplicará FIFO: primero ingresa → primero sale.";
-                    }
-                    else
-                    {
-                        Lote loteElegido = lotes[cmb.SelectedIndex - 1];
-                        lblStock.Text = loteElegido.Cantidad >= cantidad ? $"OK: Lote {loteElegido.NumeroLote} tiene stock suficiente ({loteElegido.Cantidad} disponibles)." : $"⚠️ ATENCIÓN: Stock insuficiente en este lote. Dispone: {loteElegido.Cantidad}.";
-                    }
-                };
-                cmb.SelectedIndex = 0;
-                Button btnAceptar = new Button
-                {
-                    Text = "Confirmar",
-                    DialogResult = DialogResult.OK,
-                    Location = new Point(240, 280),
-                    Size = new Size(140, 42),
-                    BackColor = ColorTranslator.FromHtml("#3A6351"),
-                    ForeColor = Color.White,
-                    FlatStyle = FlatStyle.Flat
-                };
-                btnAceptar.FlatAppearance.BorderSize = 0;
-                Button btnCancelarLote = new Button
-                {
-                    Text = "Cancelar carga",
-                    DialogResult = DialogResult.Cancel,
-                    Location = new Point(390, 280),
-                    Size = new Size(140, 42)
-                };
-                form.Controls.Add(lblInfo);
-                form.Controls.Add(cmb);
-                form.Controls.Add(lblStock);
-                form.Controls.Add(btnAceptar);
-                form.Controls.Add(btnCancelarLote);
-                form.AcceptButton = btnAceptar;
-                form.CancelButton = btnCancelarLote;
-                if (form.ShowDialog() != DialogResult.OK)
-                {
-                    canceladoPorUsuario = true;
-                    return null;
-                }
-
-                if (cmb.SelectedIndex == 0)
-                    return null;
-                return lotes[cmb.SelectedIndex - 1];
+                MessageBox.Show("No hay unidades suficientes en los lotes vigentes, descontando lo que ya agregó al carrito.", "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+            using (Form dialogo = new Form { Text = "Seleccionar lotes", Width = 760, Height = 290, StartPosition = FormStartPosition.CenterParent, FormBorderStyle = FormBorderStyle.FixedDialog, MaximizeBox = false, MinimizeBox = false })
+            {
+                Label titulo = new Label { Text = $"{solicitud.Producto.Nombre}: {solicitud.Cantidad} unidades", AutoSize = false, Bounds = new Rectangle(20, 20, 700, 35) };
+                ComboBox opcionesLotes = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Bounds = new Rectangle(20, 70, 700, 35), DataSource = opciones, DisplayMember = "Descripcion", DropDownWidth = 900 };
+                Label explicacion = new Label { AutoSize = false, Bounds = new Rectangle(20, 115, 700, 55), Text = "Las cantidades disponibles ya descuentan las unidades reservadas en este carrito. Se utilizarán únicamente los lotes de la opción elegida." };
+                Button aceptar = new Button { Text = "Agregar al carrito", DialogResult = DialogResult.OK, Bounds = new Rectangle(390, 185, 170, 38) };
+                Button cancelar = new Button { Text = "Cancelar", DialogResult = DialogResult.Cancel, Bounds = new Rectangle(580, 185, 140, 38) };
+                dialogo.Controls.AddRange(new Control[] { titulo, opcionesLotes, explicacion, aceptar, cancelar });
+                dialogo.AcceptButton = aceptar;
+                dialogo.CancelButton = cancelar;
+                return dialogo.ShowDialog(this) == DialogResult.OK ? opcionesLotes.SelectedItem as OpcionLotesVenta : null;
             }
         }
 
@@ -222,117 +159,28 @@ namespace UI
         {
             try
             {
-                if (dgvProductos.SelectedRows.Count > 0)
+                if (dgvProductos.SelectedRows.Count == 0 || dgvProductos.SelectedRows[0].DataBoundItem is not Producto producto)
+                    return;
+                OpcionLotesVenta opcion = ElegirLotes(new SolicitudSeleccionLotes
                 {
-                    Producto producto = (Producto)dgvProductos.SelectedRows[0].DataBoundItem;
-                    int cantidad = (int)nudCantidad.Value;
-                    List<Lote> lotesActivos = _loteBLL.ListarPorProducto(producto.Id);
-                    if (lotesActivos == null || lotesActivos.Count == 0)
-                    {
-                        MessageBox.Show("Este producto no tiene lotes activos. Cree al menos un lote antes de vender.");
-                        return;
-                    }
-
-                    int? loteIdFinal = null;
-                    string loteNumFinal = null;
-                    int? lotePre = LoteBLL.ObtenerLotePreseleccionado(producto.Id);
-                    if (lotePre.HasValue)
-                    {
-                        Lote? loteObj = lotesActivos.FirstOrDefault(l => l.Id == lotePre.Value);
-                        if (loteObj != null)
-                        {
-                            if (loteObj.Cantidad >= cantidad)
-                            {
-                                loteIdFinal = loteObj.Id;
-                                loteNumFinal = loteObj.NumeroLote;
-                            }
-                            else
-                            {
-                                if (MessageBox.Show($"El lote pre-seleccionado (N° {loteObj.NumeroLote}) no tiene stock suficiente\n" + $"para {cantidad} unidades (solo hay {loteObj.Cantidad}).\n\n" + "¿Desea elegir otro lote MANUALMENTE?", "Lote pre-seleccionado insuficiente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                                {
-                                    bool cancelado;
-                                    Lote elegido = ElegirLoteManual(lotesActivos, producto, cantidad, out cancelado);
-                                    if (cancelado || elegido == null)
-                                        return;
-                                    loteIdFinal = elegido.Id;
-                                    loteNumFinal = elegido.NumeroLote;
-                                }
-                                else
-                                {
-                                    LoteBLL.LimpiarLotePreseleccionado(producto.Id);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            LoteBLL.LimpiarLotePreseleccionado(producto.Id);
-                        }
-                    }
-
-                    if (!loteIdFinal.HasValue && lotesActivos.Count >= 2)
-                    {
-                        bool canceladoPorUsuario;
-                        Lote elegido = ElegirLoteManual(lotesActivos, producto, cantidad, out canceladoPorUsuario);
-                        if (canceladoPorUsuario)
-                            return;
-                        if (elegido != null)
-                        {
-                            if (elegido.Cantidad < cantidad)
-                            {
-                                MessageBox.Show($"Stock insuficiente en el lote N° {elegido.NumeroLote}.\n" + $"Dispone de {elegido.Cantidad}, requiere {cantidad}.", "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-
-                            loteIdFinal = elegido.Id;
-                            loteNumFinal = elegido.NumeroLote;
-                        }
-                    }
-
-                    if (!loteIdFinal.HasValue)
-                    {
-                        Lote? loteFIFO = lotesActivos.OrderBy(l => l.FechaIngreso).ThenBy(l => l.Id).FirstOrDefault(l => l.Cantidad >= cantidad);
-                        if (loteFIFO == null)
-                        {
-                            int totalDisp = lotesActivos.Sum(l => l.Cantidad);
-                            MessageBox.Show($"Stock insuficiente (FIFO).\n" + $"Cantidad requerida: {cantidad}.\n" + $"Total disponible en lotes: {totalDisp}.", "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-
-                        loteIdFinal = loteFIFO.Id;
-                        loteNumFinal = loteFIFO.NumeroLote;
-                    }
-
-                    VentaDetalle? existente = _carrito.FirstOrDefault(x => x.ProductoId == producto.Id);
-                    int cantidadActual = existente != null ? existente.Cantidad : 0;
-                    if (cantidad + cantidadActual > producto.Stock)
-                    {
-                        MessageBox.Show("No hay suficiente stock disponible para acumular esa cantidad.");
-                        return;
-                    }
-
-                    if (existente != null)
-                    {
-                        existente.Cantidad += cantidad;
-                        existente.PrecioUnitario = producto.Precio;
-                        if (loteIdFinal.HasValue)
-                        {
-                            existente.LoteId = loteIdFinal.Value;
-                            existente.LoteNumero = loteNumFinal;
-                        }
-                    }
-                    else
-                    {
-                        _carrito.Add(new VentaDetalle { ProductoId = producto.Id, ProductoNombre = producto.Nombre, Cantidad = cantidad, PrecioUnitario = producto.Precio, LoteId = loteIdFinal, LoteNumero = loteNumFinal });
-                    }
-
-                    ActualizarCarrito();
-                    CalcularTotal();
-                    nudCantidad.Value = 1;
+                    Producto = producto, Cantidad = (int)nudCantidad.Value,
+                    LotePreferidoId = LoteBLL.ObtenerLotePreseleccionado(producto.Id),
+                    Lotes = _loteBLL.ListarPorProducto(producto.Id), Reservas = _carrito
+                });
+                if (opcion == null) return;
+                foreach (VentaDetalle detalle in opcion.Detalles)
+                {
+                    VentaDetalle existente = _carrito.FirstOrDefault(d => d.ProductoId == detalle.ProductoId && d.LoteId == detalle.LoteId && d.PrecioUnitario == detalle.PrecioUnitario);
+                    if (existente == null) _carrito.Add(detalle);
+                    else existente.Cantidad = checked(existente.Cantidad + detalle.Cantidad);
                 }
+                ActualizarCarrito();
+                CalcularTotal();
+                nudCantidad.Value = 1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al agregar producto: {ex.Message}");
+                MessageBox.Show(ex.Message, "No se pudo agregar el producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -349,7 +197,7 @@ namespace UI
         private void ActualizarCarrito()
         {
             dgvCarrito.DataSource = null;
-            dgvCarrito.DataSource = _carrito.Select(d => new { Producto = d.ProductoNombre, Cantidad = d.Cantidad, PrecioUnitario = d.PrecioUnitario, Subtotal = d.Subtotal, Lote = string.IsNullOrWhiteSpace(d.LoteNumero) ? "(FIFO automático)" : $"Lote N° {d.LoteNumero}" }).ToList();
+            dgvCarrito.DataSource = _carrito.ToList();
             dgvCarrito.ClearSelection();
             dgvCarrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvCarrito.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -371,7 +219,11 @@ namespace UI
                 dgvCarrito.Columns["Lote"].DefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#3A6351");
             }
 
-            AjustarColumnasGrid(dgvCarrito, "Producto");
+            foreach (string oculta in new string[] { "ProductoId", "LoteId" })
+                if (dgvCarrito.Columns.Contains(oculta)) dgvCarrito.Columns[oculta].Visible = false;
+            dgvCarrito.Columns["ProductoNombre"].HeaderText = "Producto";
+            dgvCarrito.Columns["LoteNumero"].HeaderText = "Lote";
+            AjustarColumnasGrid(dgvCarrito, "ProductoNombre");
             AplicarEstilo(dgvCarrito);
             UpdateRemoveButtonState();
         }
@@ -419,11 +271,8 @@ namespace UI
         {
             if (dgvCarrito.SelectedRows.Count == 0)
                 return;
-            dynamic item = dgvCarrito.SelectedRows[0].DataBoundItem;
-            if (item == null)
-                return;
-            string nombreProd = item.Producto;
-            _carrito.RemoveAll(x => x.ProductoNombre == nombreProd);
+            if (dgvCarrito.SelectedRows[0].DataBoundItem is VentaDetalle item)
+                _carrito.Remove(item);
             ActualizarCarrito();
             CalcularTotal();
         }
@@ -508,7 +357,7 @@ namespace UI
                 }
 
                 string vendedor = Sesion.Instancia?.UsuarioLogueado?.NombreUsuario;
-                Venta venta = _ventaBLL.ConfirmarVenta(_carrito, usuarioId, clienteId, zonaVenta, vendedor);
+                Venta venta = _ventaBLL.ConfirmarVenta(new Venta { Detalles = _carrito, UsuarioId = usuarioId, ClienteId = clienteId, Zona = zonaVenta, Vendedor = vendedor });
                 string vendedorNombre = Sesion.Instancia?.UsuarioLogueado?.NombreUsuario ?? "";
                 StringBuilder detalle = new StringBuilder();
                 detalle.AppendLine($"Venta #{venta.Id} - Fecha: {venta.Fecha}");
@@ -547,20 +396,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine($"❌ Error al registrar venta:");
-                sb.AppendLine(ex.Message);
-                Exception? inEx = ex.InnerException;
-                int n = 1;
-                while (inEx != null)
-                {
-                    sb.AppendLine($"\n→ Detalle {n}: {inEx.Message}");
-                    inEx = inEx.InnerException;
-                    n++;
-                }
-
-                sb.AppendLine("\n\n👉 Pasos para solucionar (en SSMS sobre BaseGestionBebidasMF):" + "\n1) Ejecutar: BASE\\ScriptsClientes\\07_AlterTable_Ventas_Zona_Vendedor.sql  (agrega Zona/Vendedor a Ventas)" + "\n2) Ejecutar: BASE\\ScriptsClientes\\08_sp_Ventas_Insertar_ConClienteId.sql" + "\n3) Verificar que existan los SPs: sp_DetalleVentas_Upsert / sp_Lote_ListarPorProducto / sp_Lote_ActualizarStockProducto / sp_Lote_CalcularStockTotal");
-                MessageBox.Show(sb.ToString(), "Error en Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "No se pudo registrar la venta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             CargarProductos();

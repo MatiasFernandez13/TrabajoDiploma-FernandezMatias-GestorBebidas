@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using BE;
 using BLL;
@@ -15,7 +15,29 @@ namespace UI
         {
             InitializeComponent();
             _productoId = productoId;
+            txtNumeroLote.MaxLength = 50;
+            dtpFechaIngreso.Value = DateTime.Today;
+            dtpFechaVencimiento.Value = DateTime.Today.AddMonths(1);
+            txtNumeroLote.Leave += ValidarNumeroLote;
             this.Text = $"Agregar Unidades a: {nombreProducto}";
+        }
+
+        private void ValidarNumeroLote(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNumeroLote.Text)) return;
+            try
+            {
+                Lote existente = _loteBLL.BuscarExistente(new Lote { ProductoId = _productoId, NumeroLote = txtNumeroLote.Text });
+                if (existente != null)
+                {
+                    dtpFechaVencimiento.Value = existente.FechaVencimiento;
+                    Text = $"Sumar unidades al lote {existente.NumeroLote} (actuales: {existente.Cantidad})";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "No se pudo consultar el lote", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -43,8 +65,8 @@ namespace UI
                     ProductoId = _productoId,
                     Activo = true
                 };
-                _loteBLL.Agregar(lote);
-                MessageBox.Show("Unidades agregadas correctamente.");
+                ResultadoIngresoLote resultado = _loteBLL.Agregar(lote);
+                MessageBox.Show(resultado.Consolidado ? "Las unidades se sumaron al lote existente." : "Lote creado y unidades agregadas correctamente.");
                 LoteAgregado = true;
                 this.Close();
             }

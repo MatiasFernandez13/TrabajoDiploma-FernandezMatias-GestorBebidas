@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +23,22 @@ namespace UI
         public FrmProductos()
         {
             InitializeComponent();
+            txtLote.MaxLength = 50;
+            txtLote.Leave += ValidarLoteExistente;
+        }
+
+        private void ValidarLoteExistente(object sender, EventArgs e)
+        {
+            if (_productoSeleccionado == null || string.IsNullOrWhiteSpace(txtLote.Text)) return;
+            try
+            {
+                Lote existente = _loteBLL.BuscarExistente(new Lote { ProductoId = _productoSeleccionado.Id, NumeroLote = txtLote.Text });
+                if (existente != null) dtpFechaVencimiento.Value = existente.FechaVencimiento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "No se pudo consultar el lote", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void FrmProductos_Load_1(object sender, EventArgs e)
@@ -69,6 +85,9 @@ namespace UI
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AjustarColumnasGrid(dgvProductos, "Nombre");
             AplicarEstilo(dgvProductos);
+            foreach (string columna in new string[] { "Precio", "LitrosPorUnidad", "Stock" })
+                if (dgvProductos.Columns.Contains(columna)) dgvProductos.Columns[columna].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            if (dgvProductos.Columns.Contains("Precio")) dgvProductos.Columns["Precio"].DefaultCellStyle.Format = "N2";
             ConfigurarAutocomplete(productos);
             ActualizarEstadoBotones();
         }
@@ -146,7 +165,7 @@ namespace UI
             cbCategoria.SelectedIndex = -1;
             txtLitrosPorUnidad.Clear();
             txtStock.Clear();
-            txtStock.PlaceholderText = "Cant. Lote inicial";
+            txtStock.PlaceholderText = "Unidades a ingresar";
             txtPrecio.Clear();
             txtLote.Clear();
             dtpFechaIngreso.Value = DateTime.Now;
@@ -237,7 +256,7 @@ namespace UI
             btnAgregarStock.Visible = false;
             btnGrabar.Visible = true;
             btnCancelar.Visible = true;
-            txtStock.PlaceholderText = "Cant. nuevo lote (opcional)";
+            txtStock.PlaceholderText = "Unidades a sumar (opcional)";
             txtNombre.Focus();
             ActualizarEstadoBotones();
         }
@@ -290,35 +309,6 @@ namespace UI
                         return;
                     }
 
-                    List<Producto> productosExistentes = _productoBLL.Listar();
-                    Producto? productoExistente = productosExistentes.FirstOrDefault(p => p.Nombre.Equals(txtNombre.Text.Trim(), StringComparison.OrdinalIgnoreCase) && p.Categoria == categoriaId && Math.Abs(p.LitrosPorUnidad - litros) < 0.001 && p.Activo);
-                    if (productoExistente != null)
-                    {
-                        DialogResult result = MessageBox.Show($"Ya existe un producto con el mismo Nombre, Categoría y Capacidad ('{productoExistente.Nombre}').\n¿Desea agregar este lote al stock del producto existente?", "Producto Existente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            productoExistente.Precio = precio;
-                            Lote nuevoLote = new Lote
-                            {
-                                NumeroLote = txtLote.Text.Trim(),
-                                FechaIngreso = dtpFechaIngreso.Value,
-                                FechaVencimiento = dtpFechaVencimiento.Value,
-                                Cantidad = cantidadInicial,
-                                ProductoId = productoExistente.Id,
-                                Activo = true
-                            };
-                            _productoBLL.Modificar(productoExistente, nuevoLote);
-                            MessageBox.Show("Stock y lote agregados al producto existente con éxito.");
-                            CargarGrilla();
-                            LimpiarCampos();
-                            return;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-
                     Producto nuevoProducto = new Producto
                     {
                         Nombre = txtNombre.Text.Trim(),
@@ -335,7 +325,7 @@ namespace UI
                         Cantidad = cantidadInicial,
                         Activo = true
                     };
-                    _productoBLL.AgregarConLote(nuevoProducto, nuevoLoteInicial);
+                    _productoBLL.AgregarConLote(new SolicitudProducto { Producto = nuevoProducto, Lote = nuevoLoteInicial });
                     MessageBox.Show("Producto y stock inicial agregados con éxito.");
                 }
                 else
@@ -364,7 +354,7 @@ namespace UI
                         };
                     }
 
-                    _productoBLL.Modificar(_productoSeleccionado, loteActualizar);
+                    _productoBLL.Modificar(new SolicitudProducto { Producto = _productoSeleccionado, Lote = loteActualizar });
                     MessageBox.Show("Producto actualizado con éxito.");
                 }
 
@@ -424,7 +414,7 @@ namespace UI
             cbCategoria.SelectedValue = prod.Categoria;
             txtLitrosPorUnidad.Text = prod.LitrosPorUnidad.ToString();
             txtStock.Text = "";
-            txtStock.PlaceholderText = "Cant. nuevo lote (opcional)";
+            txtStock.PlaceholderText = "Unidades a sumar (opcional)";
             txtPrecio.Text = prod.Precio.ToString();
             CambiarEstadoCampos(false);
             txtLote.Clear();
